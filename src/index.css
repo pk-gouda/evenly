@@ -1,21 +1,23 @@
-/* ---- Reset & base ---- */
+/* ───────────────── Base / Reset ───────────────── */
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; }
 img, svg { display: block; max-width: 100%; }
 a { text-decoration: none; }
 
-/* Design tokens (navy & white) */
+/* ───────────────── Design Tokens ───────────────── */
 :root{
-  --navy: #1e3a8a;
+  --navy:   #1e3a8a;
   --navy-2: #284fad;
-  --sky: #3b82f6;
-  --ink: #0f172a;
-  --muted: #6b7280;
-  --bg: linear-gradient(135deg,#f9fafb 0%,#e9efff 100%);
-  --card: #ffffff;
+  --sky:    #3b82f6;
+  --ink:    #0f172a;
+  --muted:  #6b7280;
+
+  --bg:     linear-gradient(135deg,#f9fafb 0%,#e9efff 100%);
+  --card:   #ffffff;
   --radius: 16px;
 }
 
+/* ───────────────── Page Base ───────────────── */
 body{
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
   color: var(--ink);
@@ -24,21 +26,25 @@ body{
 }
 
 /* Layout helpers */
-.container{ max-width: 1120px; width: calc(100% - 40px); margin: 0 auto; padding: 0 20px; }
-.section{ padding: 72px 0; scroll-margin-top: 80px; }
+.container { max-width: 1120px; width: calc(100% - 40px); margin: 0 auto; padding: 0 20px; }
+.section   { padding: 72px 0; scroll-margin-top: 80px; }
 .section-title{ font-size: 28px; font-weight: 800; margin: 0 0 18px; text-align: center; }
 
-/* Nav */
-.nav{ position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(8px);
-      background: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(0,0,0,0.06); }
+/* ───────────────── Nav ───────────────── */
+.nav{
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
 .nav-row{ display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-.logo{ font-weight: 900; font-size: 20px; letter-spacing: .3px; }
+.logo    { font-weight: 900; font-size: 20px; letter-spacing: .3px; }
 .nav-links{ display: flex; gap: 16px; }
 .nav-links a{ color: var(--ink); }
 .nav-links a:hover{ color: var(--navy); }
-.nav-actions{ display: flex; gap: 10px; }
+.nav-actions{ display: flex; align-items: center; gap: 12px; }
 
-/* Hero */
+/* ───────────────── Hero ───────────────── */
 .hero{ padding-top: 96px; }
 .hero-grid{ display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 36px; align-items: center; }
 .hero-title{ font-size: clamp(32px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; font-weight: 900; }
@@ -55,8 +61,7 @@ body{
 .dot{ width: 10px; height: 10px; border-radius: 50%; background: #cbd5e1; }
 .dot-red{ background: #ef4444; } .dot-yellow{ background: #f59e0b; } .dot-green{ background: #22c55e; }
 .card-body{ padding: 18px; }
-.skeleton{ border-radius: 8px; background: linear-gradient(90deg,#eef2ff,#ffffff,#eef2ff);
-           background-size: 200% 100%; animation: sk 1.3s infinite linear; }
+.skeleton{ border-radius: 8px; background: linear-gradient(90deg,#eef2ff,#ffffff,#eef2ff); background-size: 200% 100%; animation: sk 1.3s infinite linear; }
 .skeleton.title{ height: 18px; width: 60%; margin: 8px 0 14px; }
 .skeleton.line{ height: 12px; width: 90%; margin: 10px 0; }
 .skeleton.row{ display: flex; gap: 8px; margin-top: 10px; }
@@ -64,40 +69,60 @@ body{
 .skeleton.box{ height: 120px; margin-top: 14px; }
 @keyframes sk{ to{ background-position: 200% 0; } }
 
-/* Features */
+/* ───────────────── Features ───────────────── */
 .features-grid{ display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-top: 12px; }
-.feature-card{ background: var(--card); border-radius: var(--radius); padding: 18px;
-  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.feature-card{ background: var(--card); border-radius: var(--radius); padding: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
 .feature-icon{ font-size: 24px; }
 .feature-title{ margin: 8px 0 6px; font-weight: 800; }
 
-/* How it works */
-.how-grid{ display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px;
-  list-style: none; padding: 0; margin: 14px 0 0; }
-.step{ display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start;
-  background: var(--card); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius); padding: 16px; }
-.step-badge{ width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center;
-  background: var(--navy); color: #fff; font-weight: 900; }
+/* ───────────────── How it works ───────────────── */
+.how-grid{ display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; list-style: none; padding: 0; margin: 14px 0 0; }
+.step{ display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; background: var(--card); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius); padding: 16px; }
+.step-badge{ width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--navy); color: #fff; font-weight: 900; }
 .step-title{ margin: 0 0 6px; }
 
-/* Footer */
+/* ───────────────── Footer ───────────────── */
 .footer{ border-top: 1px solid rgba(0,0,0,0.06); background: #fff; }
 .footer-grid{ display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
 .footer-links{ display: flex; gap: 16px; }
 .footer a{ color: var(--navy); }
 
-/* Buttons */
-.btn{ display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 10px 14px; border-radius: 999px; font-weight: 800; border: 2px solid transparent;
-  transition: transform .16s ease, box-shadow .16s ease, filter .16s ease; }
-.btn-sm{ padding: 8px 12px; }
-.btn-primary{ background: linear-gradient(180deg, var(--navy), var(--sky)); color: #fff;
-  box-shadow: 0 10px 24px rgba(30,58,138,0.35); }
-.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 14px 32px rgba(30,58,138,0.45); }
-.btn-ghost{ background: #fff; color: var(--navy); border-color: var(--navy); border: 2px solid var(--navy); }
-.btn-ghost:hover{ filter: brightness(1.05); }
+/* ───────────────── Buttons (global) ───────────────── */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  line-height: 1; height: 40px; padding: 0 16px;
+  border: 2px solid transparent; border-radius: 999px; font-weight: 800;
+  transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+}
+.btn-sm{ height: 36px; padding: 0 14px; font-size: 14px; }
 
-/* Responsive */
+.btn-primary{
+  background: linear-gradient(180deg, var(--navy), var(--sky)); color: #fff;
+  box-shadow: 0 10px 24px rgba(30,58,138,0.35);
+}
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 14px 32px rgba(30,58,138,0.45); }
+
+.btn-ghost{
+  background: transparent; color: var(--navy); border-color: var(--navy);
+}
+.btn-ghost:hover{ background: rgba(30,58,138,0.06); }
+
+/* ───────────────── Nav-specific button tweaks ─────────────────
+   (Keeps the hero buttons with lift/shadow while nav pills stay aligned) */
+.nav .btn-primary{
+  transform: none;            /* no vertical shift */
+  box-shadow: 0 8px 20px rgba(30,58,138,.28);
+}
+.nav .btn-primary:hover{
+  transform: none;            /* keep perfectly level on hover too */
+  box-shadow: 0 10px 24px rgba(30,58,138,.32);
+}
+.nav .btn-ghost{
+  background: transparent; color: var(--navy); border-color: var(--navy);
+}
+.nav .btn-ghost:hover{ background: rgba(30,58,138,.06); }
+
+/* ───────────────── Responsive ───────────────── */
 @media (max-width: 960px){
   .hero-grid{ grid-template-columns: 1fr; text-align: center; }
   .cta-row{ justify-content: center; }
@@ -105,3 +130,48 @@ body{
   .how-grid{ grid-template-columns: 1fr; }
   .footer-grid{ flex-direction: column; gap: 12px; }
 }
+
+/* ───────────────── Auth Page (scoped) ───────────────── */
+.auth-page{
+  min-height: 100dvh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#f9fafb,#e9efff); padding: 16px;
+}
+.auth-shell{
+  position: relative; width: 980px; max-width: 95vw; height: 480px;
+  border-radius: 28px; background: #fff; box-shadow: 0 40px 120px rgba(0,0,0,.18); overflow: hidden;
+}
+.auth-slider{ position: absolute; inset: 0; width: 200%; height: 100%; display: flex; transition: transform .6s ease-in-out; }
+.auth-view{ flex: 0 0 50%; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+
+.auth-form-wrap{ width: 360px; max-width: 90%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.auth-title{ font-size: 32px; font-weight: 800; margin: 0 0 12px; color: var(--ink); }
+
+.input{
+  width: 100%; background: #f3f4f6; border: 1px solid #e5e7eb;
+  padding: 12px 14px; border-radius: 10px; margin-top: 10px;
+}
+
+.error-box{ background:#fef2f2; color:#991b1b; padding:10px; border-radius:10px; margin-top:10px; width:100%; }
+.tiny-muted{ margin-top:8px; font-size:12px; color:var(--muted); }
+
+/* overlay panel (right side) */
+.auth-overlay{
+  width: 100%; height: 100%; color: #fff;
+  background: linear-gradient(180deg, var(--navy), var(--sky));
+  display: flex; align-items: center; justify-content: center;
+}
+.overlay-inner{ max-width: 380px; padding: 40px; text-align: center; }
+.overlay-heading{ font-size: 34px; font-weight: 800; margin: 0 0 12px; }
+.overlay-text{ opacity:.9; margin: 0 0 16px; }
+
+/* Google + Overlay buttons (scoped so they don't affect nav) */
+.btn-google{
+  background:#fff; border: 2px solid var(--navy); color: var(--ink);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12); margin-top: 6px;
+}
+.auth-overlay .btn-ghost{
+  color: #fff; border-color: rgba(255,255,255,.85); background: transparent;
+}
+.auth-overlay .btn-ghost:hover{ background: rgba(255,255,255,.10); }
+
+.auth-back{ position: fixed; left: 24px; bottom: 20px; color: var(--navy); font-weight: 600; }
